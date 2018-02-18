@@ -8,13 +8,36 @@
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <p class="lead">
             <a class="btn btn-outline-dark btn-lg" 
-            href="sessions/new" 
+            href="/timer" 
             role="button">New Session</a>
         </p>
     </div>
 </div>
 
 <div class="container">
+    <div class="row text-center stats">
+        <% const totalTime = sessions.reduce((total, session) => { %>
+            <% return total + parseInt(session.time); %>
+        <% }, 0); %>
+        <div class="col-md-4 stat">
+            <h4>Total Meditation Time</h4>
+            <hr>
+            <h1><%= totalTime %></h1>               
+            <p>minutes</p>
+        </div>        
+        <div class="col-md-4 stat">
+            <h4>Total Sessions</h4>
+            <hr>
+            <h1><%= sessions.length %></h1>
+            <p>sessions</p>
+        </div> 
+        <div class="col-md-4 stat">
+            <h4>Average Session Length</h4>
+            <hr>
+            <h1><%= Math.floor(totalTime / sessions.length) %></h1>
+            <p>minutes</p>   
+        </div>         
+    </div>
     <div class="row">
         <% sessions.forEach(function(session){ %>
             <div class="col-md-6">

@@ -14,7 +14,7 @@ router.get('/', function(req, res){
 });
 
 
-// CREATE
+
 router.post('/', function(req, res){
     let name       = req.body.name,
         time       = req.body.time,
@@ -31,7 +31,7 @@ router.post('/', function(req, res){
 });
 
 
-// NEW
+// CREATE
 router.get('/new', function(req, res){
     res.render('sessions/new');
 });

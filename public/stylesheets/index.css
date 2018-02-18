@@ -13,10 +13,12 @@ body {
 /* LANDING */
 
 .landing-title{
-    display: flex;
-    /* grid-template-rows: 1fr auto; */
+    /* display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh; */
     justify-content: center;
-    align-items: center;
+    align-content: center;
+    
 }
 
 
@@ -28,8 +30,10 @@ body {
 }
 
 .jumbotron {
+    background-color: rgba(255, 255, 255, 0.7);
     margin: 25px;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
+    color: black;
 }
 
 .lead {
@@ -37,7 +41,6 @@ body {
 }
 
 .jumbotron .container {
-    background: inherit;
     box-shadow: none;
 }
 
@@ -64,6 +67,15 @@ body {
 .session-form {
     width: 50%;
     margin: auto;
+}
+
+.stats {
+    color: antiquewhite;
+    margin: 2em;
+}
+
+.stat {
+    padding: 2em;
 }
 
 

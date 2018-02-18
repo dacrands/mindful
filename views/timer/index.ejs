@@ -19,9 +19,10 @@
     <br>
     <select class="form-control" type="number" name="time" placeholder="Time" min="0" max="60" step="1">
         <% for(let i = 0; i <= 60; i++) { %>
-            <option value="<%= i %>"><%= i %></option>
+            <option name="minutes" value="<%= i %>"><%= i %></option>
         <% } %>
     </select>
+    <a href="/sessions/new"><button class="btn btn-lg btn-default btn-light" id="start" type="button" name="button">Add Session</button></a>
 </div>
 
 
