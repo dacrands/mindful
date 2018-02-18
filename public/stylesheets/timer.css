@@ -1,0 +1,48 @@
+.message {
+    margin-bottom: 5em;
+  }
+
+.clock {
+    padding: 5em;
+    text-align: center;
+}
+
+.clock h1 {
+    font-size: 100px;
+}
+
+.clock h2 {
+    font-size: 70px;
+}
+
+.clock button:focus {
+outline:0;
+}
+
+.clock button:visited {
+outline: none;
+}
+
+.clock .btn-group {
+display: inline-block;
+margin-top: 10px;
+}
+
+.clock .form-control {
+    width: 20%;
+    margin: 2em auto;
+}
+  
+.change-time {
+margin-bottom: 2em;
+}
+
+.increment button {
+    width: 50px;
+    height: 50px;
+}
+
+.far-disabled {
+opacity: 0.6;
+cursor: not-allowed !important;
+pointe

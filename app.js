@@ -9,6 +9,7 @@ const mongoose   = require('mongoose'),
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname +'/public'));
+app.use(express.static(__dirname +'/src'));
 
 // MONGO
 mongoose.connect('mongodb://localhost:27017/mindful');

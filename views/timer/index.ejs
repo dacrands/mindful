@@ -1,9 +1,33 @@
 <% include ../partials/header %>
 
 
-<h1>
-    This is the timer page
-</h1>
+<div class="clock">
 
-<script src="../../src/timer.js"></script>
+    <div class="timer">
+      <h1><span id="minutes">00</span>:<span id="seconds">00</span></h1>
+    </div>
+    <div class="btn-group change-time increment" role="group">
+      <button class="btn btn-lg btn-default btn-outline-light" id="increase" type="button" name="button">+</button>
+      <button class="btn btn-lg btn-default btn-outline-light" id="decrease" type="button" name="button">-</button>
+    </div>
+    <br>
+    <div class="btn-group" role="group">
+      <button class="btn btn-lg btn-default btn-success" id="start" type="button" name="button">Start</button>
+      <button class="btn btn-lg btn-default btn-danger" id="stop" type="button" name="button">Stop</button>
+      <button class="btn btn-lg btn-default btn-warning" id="restart" type="button" name="button">Restart</button>
+    </div>
+    <br>
+    <select class="form-control" type="number" name="time" placeholder="Time" min="0" max="60" step="1">
+        <% for(let i = 0; i <= 60; i++) { %>
+            <option value="<%= i %>"><%= i %></option>
+        <% } %>
+    </select>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.core.min.js"></script>
+<script src="timer.js"></script>
+<script>
+    document.querySelector('h1').style.color = 'white';
+</script>
 <% include ../partials/footer %>

@@ -1,7 +1,7 @@
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
      Session = require('./models/session');
 
-var data = [
+const data = [
     {
         name: 'David C',
         time: '20',

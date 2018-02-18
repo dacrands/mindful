@@ -1,4 +1,3 @@
-
 var seconds = 0,
     minutes = 25,
     shortSession = 5,
@@ -10,55 +9,33 @@ var  startButton    = document.querySelector("#start"),
      restartButton  = document.querySelector("#restart"),
      increaseButton = document.querySelector("#increase"),
      decreaseButton = document.querySelector("#decrease"),
-     shortButton    = document.querySelector("#short"),
-     longButton     = document.querySelector("#long");
-     message        = document.querySelector("#message")
+     message        = document.querySelector("#message"),
+     begin;
 
-var shortSessionBool = false;
-var begin;
-stopButton.disabled = true;
-longButton.disabled = true;
-
-// var sound = new Howl({
-//   src: ['audio/bubbles.mp3'],
-//   loop: true,
-//   volume: 0.5,
-// });
-
+    
 document.querySelector("#seconds").innerHTML = "0" + seconds;
 document.querySelector("#minutes").innerHTML = minutes;
 
-function pickLongSession(){
-  sound.stop();
-  stop();
-  message.innerHTML = "Focus on the proccess";
-  shortSessionBool = false;
-  decreaseButton.disabled = false;
-  startButton.disabled = false;
-  longButton.disabled = true;
-  shortButton.disabled = false;
-  session = longSession;
-  minutes = session;
-  seconds = 0;
-  document.querySelector("#minutes").innerHTML = session;
-  document.querySelector("#seconds").innerHTML = "0" + seconds;
-}
+//  SELECTOR
+const selector = document.querySelector('select');
 
-function pickShortSession(){
-  sound.stop();
-  stop();
-  message.innerHTML = "Focus on the breath";
-  shortSessionBool = true;
-  decreaseButton.disabled = false;
-  startButton.disabled = false;
-  longButton.disabled = false;
-  shortButton.disabled = true;
-  session = shortSession;
-  minutes = session;
+selector.addEventListener('change', function(e){
+  minutes = e.target.value;
   seconds = 0;
-  document.querySelector("#minutes").innerHTML = session;
+  document.querySelector("#minutes").innerHTML = e.target.value;
   document.querySelector("#seconds").innerHTML = "0" + seconds;
-}
+});
+
+stopButton.disabled = true;
+stopButton.classList.add("far-disabled");
+
+var sound = new Howl({
+  src: ['audio/bubbles.mp3'],
+  loop: true,
+  volume: 0.5
+});
+
+
 
 function increase(){
     decreaseButton.disabled = false;
@@ -67,11 +44,6 @@ function increase(){
     seconds = 0;
     document.querySelector("#minutes").innerHTML = session;
     document.querySelector("#seconds").innerHTML = "0" + seconds;
-    if (!shortSessionBool) {
-      longSession = session;
-    } else {
-      shortSession = session;
-    }
 }
 
 function decrease(){
@@ -84,23 +56,12 @@ function decrease(){
   } else {
     decreaseButton.disabled = true;
   }
-
-  if (!shortSessionBool) {
-    longSession = session;
-  } else {
-    shortSession = session;
-  }
 }
 
 function appendTime(){
   seconds--;
   if (seconds <= 0 && minutes <= 0) {
     sound.play();
-    if (!shortSessionBool) {
-      message.innerHTML = "Take a break";
-    } else {
-      message.innerHTML = "Let's get to work";
-    }
     stop();
   }
 
@@ -122,25 +83,23 @@ function appendTime(){
   }
 }
 
+
 function start(){
     if(!begin){
       decreaseButton.classList.add("far-disabled");
       increaseButton.classList.add("far-disabled");
+      startButton.classList.add("far-disabled");
       restartButton.classList.add("far-disabled");
+      selector.classList.add('far-disabled');
+      stopButton.classList.remove("far-disabled");
       restartButton.disabled = true;
       decreaseButton.disabled = true;
       increaseButton.disabled = true;
       startButton.disabled = true;
       stopButton.disabled = false;
+      selector.disabled = true;
       begin = setInterval(appendTime, 1000);
     }
-
-    if(!shortSessionBool) {
-      message.innerHTML = "Focus on the proccess";
-    } else {
-      message.innerHTML = "Focus on the breath";
-    }
-
 }
 
 function stop(){
@@ -148,10 +107,14 @@ function stop(){
     decreaseButton.classList.remove("far-disabled");
     increaseButton.classList.remove("far-disabled");
     restartButton.classList.remove("far-disabled");
+    startButton.classList.remove("far-disabled");
+    selector.classList.remove('far-disabled');
+    stopButton.classList.add("far-disabled");
     restartButton.disabled = false;
     decreaseButton.disabled = false;
     increaseButton.disabled = false;
     startButton.disabled = false;
+    selector.disabled = false;
     stopButton.disabled = true;
     if (seconds <= 0 && minutes <= 0) {
       startButton.disabled = true;
@@ -167,12 +130,12 @@ function restart(){
     clearInterval(begin);
     begin = null;
   }
+  seconds = 0;
+  minutes = session;
   decreaseButton.disabled = false;
   increaseButton.disabled = false;
   startButton.disabled = false;
   stopButton.disabled = true;
-  seconds = 0;
-  minutes = session;
   document.querySelector("#seconds").innerHTML = "0" + seconds;
   document.querySelector("#minutes").innerHTML = minutes;
 }
@@ -183,6 +146,3 @@ restartButton.onclick = restart;
 
 increaseButton.onclick = increase;
 decreaseButton.onclick = decrease;
-
-longButton.onclick = pickLongSession;
-shortButton.onclick = pickShortSession;
