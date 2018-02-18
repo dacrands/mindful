@@ -1,0 +1,90 @@
+body {
+    background: rgb(9, 84, 196);
+    font-family: 'Ubuntu', sans-serif;
+    /* padding: 2em; */
+}
+
+/* .container {
+    background: yellowgreen;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+} */
+
+
+/* LANDING */
+
+.landing-title{
+    display: flex;
+    /* grid-template-rows: 1fr auto; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.landing iframe {
+    width: 100%;
+    height: 100vh;
+    position:absolute;
+    z-index: -999;
+}
+
+.jumbotron {
+    margin: 25px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
+}
+
+.lead {
+    text-align: center;
+}
+
+.jumbotron .container {
+    background: inherit;
+    box-shadow: none;
+}
+
+.card {
+    margin: 1em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
+}
+
+
+/* SESSION */
+.new-session {
+    padding: 2em;
+    color: rgb(32, 32, 31);
+    width: 100%;
+    height: 100vh;
+    background: yellowgreen;
+}
+
+.new-session h1 {
+    text-align: center;
+    padding: 0 0 1em 0;
+}
+
+.session-form {
+    width: 50%;
+    margin: auto;
+}
+
+
+/* SHOW */
+.show {
+    width: 100%;
+    height: 100vh;
+    background: whitesmoke;
+    padding: 2em;
+}
+
+.show-title {
+    text-align: center;
+    font-weight: 100;
+}
+
+.show-note {
+    width: 70%;
+    margin: auto;
+}
+
+.show p {
+    color: black;
+}

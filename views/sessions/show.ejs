@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="show">
+    <div class="container">
+        <div class="show-title">
+            <h1><%= session.name %> - <%= session.time %> minutes</h1>
+            <h3 class="text-muted"><%= session.date %></h3>
+        </div>
+        <hr>
+        <div class="show-note">
+            <p>
+                <%= session.note %>
+            </p>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

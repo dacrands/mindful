@@ -1,3 +1,41 @@
-<div class="container">
-    <h1>Sessions</h1>
+<% include ../partials/header %>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">This is a test</h1>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+            <a class="btn btn-outline-dark btn-lg" 
+            href="sessions/new" 
+            role="button">New Session</a>
+        </p>
+    </div>
 </div>
+
+<div class="container">
+    <div class="row">
+        <% sessions.forEach(function(session){ %>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= session.name %> - <%= session.time %> minutes
+                        </h5>                        
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <%= session.date %>
+                        </h6>
+                        <hr>
+                        <p class="card-text">
+                            <%= session.note.slice(1,100) %>
+                            <a href="/sessions/<%= session._id %>">...more</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>  
+</div>    
+
+<% include ../partials/footer %>
