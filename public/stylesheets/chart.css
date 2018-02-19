@@ -1,0 +1,21 @@
+.time-list ul {
+    display: none;
+}
+
+.chart-container {
+    margin-top: 5em;
+    padding: 2em 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+
+.chart div {
+    font: 25px sans-serif;
+    background-color: hsla(16, 100%, 50%, 0.7);
+    text-align: right;
+    padding: 5px;
+    margin: 1px;
+    color: black;
+}
